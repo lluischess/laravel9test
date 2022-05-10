@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Show PHP:
+Route::get('/php', function(){
+    return view('phpinfo');
+});
