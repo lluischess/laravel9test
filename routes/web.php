@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Image;
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', function () {
+
+    // Recorrer el objeto Image
+    $images = Image::all();
+    foreach( $images as $img){
+        echo $img->image_path . "<br>";
+        echo $img->description . "<br>";
+        echo $img->user->name ;
+    }
+
+
     return view('welcome');
 });
 

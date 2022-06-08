@@ -26,7 +26,7 @@ class Image extends Model
     // Relation Many to One
     public function user(){
         // Definimos a que Modelo esta relacionado y a que clave foranea esta ligado de este Modelo(User(id) ->Image(user_id))
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }
