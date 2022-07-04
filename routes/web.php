@@ -18,28 +18,38 @@ use App\Models\User;
 */
 
 // Home
+// Route::get('/', function () {
+
+//     // Recorrer el objeto Image
+//     $images = Image::all();
+//     foreach( $images as $img){
+//         echo $img->image_path . "<br>";
+//         echo $img->description . "<br>";
+//         echo $img->user->name;
+//         echo "COMENTARIOS";
+//         echo "<br>";
+//         foreach ($img->comments as $comment) {
+//             echo $comment->user->name . " " . $comment->user->surname . "<br>";
+//             echo $comment->content . "<br>";
+//         }
+//         echo "<br>";
+//     }
+
+
+//     return view('welcome');
+// });
+
+// Home
 Route::get('/', function () {
-
-    // Recorrer el objeto Image
-    $images = Image::all();
-    foreach( $images as $img){
-        echo $img->image_path . "<br>";
-        echo $img->description . "<br>";
-        echo $img->user->name;
-        echo "COMENTARIOS";
-        echo "<br>";
-        foreach ($img->comments as $comment) {
-            echo $comment->user->name . " " . $comment->user->surname . "<br>";
-            echo $comment->content . "<br>";
-        }
-        echo "<br>";
-    }
-
-
-    return view('welcome');
+    return view('home');
 });
 
 // Show PHP versión:
 Route::get('/php', function(){
     return view('phpinfo');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
