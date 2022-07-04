@@ -15,12 +15,12 @@ class Image extends Model
     // Relation One to Many
     public function comments(){
         // Definimos la relación con otro Modelo/Objeto
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     // Relation One to Many
     public function likes(){
-        return $this->hasMany('App\Like');
+        return $this->hasMany('App\Models\Like');
     }
 
     // Relation Many to One

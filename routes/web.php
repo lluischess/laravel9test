@@ -26,6 +26,12 @@ Route::get('/', function () {
         echo $img->image_path . "<br>";
         echo $img->description . "<br>";
         echo $img->user->name ;
+        echo "COMENTARIOS";
+        echo "<br>";
+        foreach ($img->comments as $comment) {
+            echo $comment->content . "<br>";
+        }
+        echo "<br>";
     }
 
 

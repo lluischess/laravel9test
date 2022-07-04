@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     // Many to One
     public function images(){
-        return $this->hasMany('App\Image');
+        return $this->hasMany('App\Models\Image');
     }
 }
