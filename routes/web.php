@@ -25,10 +25,11 @@ Route::get('/', function () {
     foreach( $images as $img){
         echo $img->image_path . "<br>";
         echo $img->description . "<br>";
-        echo $img->user->name ;
+        echo $img->user->name;
         echo "COMENTARIOS";
         echo "<br>";
         foreach ($img->comments as $comment) {
+            echo $comment->user->name . " " . $comment->user->surname . "<br>";
             echo $comment->content . "<br>";
         }
         echo "<br>";
