@@ -53,3 +53,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Settings
+Route::get('/settings', [\App\Http\Controllers\UserController::class, 'settings'])->name('settings');
