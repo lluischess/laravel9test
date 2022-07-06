@@ -55,3 +55,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Settings
 Route::get('/settings', [\App\Http\Controllers\UserController::class, 'settings'])->name('settings');
+
+// Edit Settings
+Route::post('/user/update', [\App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+
