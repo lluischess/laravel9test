@@ -14,6 +14,8 @@ class UserController extends Controller
     public function update(Request $request){
 
         # Como tenemos el namespace en controllers y la carpeta Auth esta dentro le añadimos una contrabarra \Auth
+        # $User = usuer identifier in this moment
+        $user = \Auth::user();
         $id = \Auth::user()->id;
         
         // validate for backend data
@@ -25,16 +27,24 @@ class UserController extends Controller
         
         ]);
        
-       
+       // Save data form
        $name = $request->input('name');
        $surname = $request->input('surname');
        $nick = $request->input('nick');
        $email = $request->input('email');
 
-       var_dump($id);
-       var_dump($name);
+       // Add new data to settings form
+       $user->name = $name;
+       $user->surname = $surname;
+       $user->nick = $nick;
+       $user->email = $email;
 
-       die();
+       // Execute SQL query on BBDD
+       $user->update();
+
+       return redirect()->route('settings')
+                                ->with(['message' => 'User updated']);
+
     }
 
 
