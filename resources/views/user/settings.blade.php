@@ -75,6 +75,20 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="img_avatar" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="img_avatar" type="file" class="form-control @error('img_avatar') is-invalid @enderror" name="img_avatar" value="{{ Auth::user()->img_avatar }}" required autocomplete="img_avatar">
+
+                                @error('img_avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
