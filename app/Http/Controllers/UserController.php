@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
 
@@ -38,6 +40,15 @@ class UserController extends Controller
        $user->surname = $surname;
        $user->nick = $nick;
        $user->email = $email;
+
+       // Upload Img to Server
+       $img_avatar = $request->file('img_avatar');
+       
+       if ($img_avatar){
+            $img_avatar_name = time(). $img_avatar->getClientOriginalName(); 
+            Storage::disk('users')->put($img_avatar_name, File::get($img_avatar));
+            $user->img = $img_avatar_name;
+        }
 
        // Execute SQL query on BBDD
        $user->update();
