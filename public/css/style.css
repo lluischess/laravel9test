@@ -1,0 +1,15 @@
+.avatar{
+    width: 75px;
+}
+
+.navbar .container-avatar{
+    padding-top: 4%;
+    width: 35px;
+    height: 35px;
+    border-radius: 200px;
+    overflow: hidden;
+}
+
+.container-avatar img{
+    height: 100%;
+}

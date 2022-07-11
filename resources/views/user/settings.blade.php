@@ -79,6 +79,7 @@
                             <label for="img_avatar" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
 
                             <div class="col-md-6">
+                                @include('includes.avatar')
                                 <input id="img_avatar" type="file" class="form-control @error('img_avatar') is-invalid @enderror" name="img_avatar" value="{{ Auth::user()->img_avatar }}" autocomplete="img_avatar">
 
                                 @error('img_avatar')

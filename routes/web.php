@@ -59,3 +59,5 @@ Route::get('/settings', [\App\Http\Controllers\UserController::class, 'settings'
 // Edit Settings
 Route::post('/user/update', [\App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
+// Avatar Settings
+Route::get('/user/avatar/{filename}', [\App\Http\Controllers\UserController::class, 'get_img_avatar'])->name('user.avatar');

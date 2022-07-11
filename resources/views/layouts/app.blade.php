@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('sass/app.sass') }}" rel="stylesheet" type="text/css">
     <script src="less.js" type="text/javascript"></script>
 </head>
@@ -36,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                         
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,6 +61,9 @@
                             </li>
                             <li class="nav-item">
                             <a href="" class="nav-link">Add image</a>
+                            </li>
+                            <li>
+                                @include('includes.avatar')
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

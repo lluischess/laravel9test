@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // Este middleware evita que accedan a los metodos por si no estan identificados añadiendo la url manual
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function settings(){
         return view('user.settings');
     }
@@ -56,6 +62,11 @@ class UserController extends Controller
        return redirect()->route('settings')
                                 ->with(['message' => 'User updated']);
 
+    }
+
+    public function get_img_avatar($file_name){
+        $file = Storage::disk('users')->get($file_name);
+        return new Response($file, 200);
     }
 
 
