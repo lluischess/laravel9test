@@ -10,25 +10,46 @@
                 <div class="card-header">{{ __('Add Image') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('image.save') }}" enctype="multipart/form-data">
                         <!--Grid column-->
                         <div class="col-md-6 mb-4 mx-auto">
                             <div class="file-field">
                                 <div class="z-depth-1-half mb-4">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid" alt="example placeholder">
+                                    <img src="" class="img-fluid" alt="example placeholder">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">
-                                        <span>Choose file</span>
-                                        <input type="file">
+                                        <input id="image_path" name="image_path" type="file" require>
+
+                                        @error('image_path')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                            <label class="form-label" for="form6Example7">Description</label>
+                            <label class="form-label" for="description_img">Description:</label>
+                            <textarea class="form-control" id="description_img" name="description_img" rows="4"></textarea>
+
+                            @error('description_img')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-3  mx-auto" >
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Publish image') }}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

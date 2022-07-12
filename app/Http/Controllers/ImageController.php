@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ImageController extends Controller
 {
@@ -15,6 +19,40 @@ class ImageController extends Controller
         return view('images.create');
     }
 
+    public function save(Request $request){
+
+        //Validation
+        $validate = $this->validate($request, [
+            'description_img' => ['required'],
+            'image_path' => ['required', 'image']
+        
+        ]);
+
+        // save data
+        $img_path = $request->file('image_path');
+        $description = $request->input('description_img');
+
+        //new object
+        $user = \Auth::user();
+        $image = new Image();
+        $image->user_id = $user->id;
+        $image->image_path = null;
+        $image->description = $description;
+
+        // Upload img
+        if ($img_path){
+            $img_name = time(). $img_path->getClientOriginalName(); 
+            Storage::disk('images')->put($img_name, File::get($img_path));
+            $image->image_path = $img_name;
+        }
+
+        $image->save();
+        
+        return redirect()->route('home')
+                                ->with(['message' => 'Image upload']);
+
+        
+    }
 
 
 }
