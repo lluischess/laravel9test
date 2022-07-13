@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {   
         // filtro de imagenes por id descendiente
-        $images = Image::orderby('id', 'desc')->get();
+        $images = Image::orderby('id', 'desc')->simplePaginate(5);
         
         
         return view('home',[

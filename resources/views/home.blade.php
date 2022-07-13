@@ -22,23 +22,26 @@
                     </div>
                     @endif
                     <div class="data-user">
-                    {{ $image->user->name. ' '.$image->user->surname. ' | ' }} <span>{{ '@'.$image->user->nick }}</span>
+                        {{ $image->user->name. ' '.$image->user->surname. ' | ' }} <span>{{ '@'.$image->user->nick }}</span>
                     </div>
-                    
-                </div>
 
-            </div>
-            
-            <div class="card-body">
-            <div class="container-img">
-                <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
-            </div>
+                </div>
+                <div class="card-body">
+                    <div class="container-img">
+                        <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
+                    </div>
+
+                    <div class="container-desc">
+                        <span>{{ '@'.$image->user->nick }}</span>
+                        <p>{{ $image->description }}</p>
+                    </div>
+                </div>
             </div>
             @endforeach
-
-            
+            {{ $images->links() }}
 
         </div>
+
     </div>
 </div>
 @endsection

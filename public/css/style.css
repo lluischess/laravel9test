@@ -19,6 +19,10 @@
     height: 100%;
 }
 
+.pub_img{
+    margin-bottom: 5%;
+}
+
 .pub_img .container-avatar-profile{
     float: left;
     margin-right: 20px;
@@ -32,9 +36,15 @@
     color: gray;
 }
 .container-img{
-    max-height: 400px;
+    max-height: 450px;
 }
 .container-img img{
     width: 100%;
-    height: 400px;
+    height: 450px;
+    object-fit: cover;
+    object-position: 50% 45%;
+}
+
+.container-desc{
+    padding: 20px;
 }
