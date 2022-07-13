@@ -4,26 +4,40 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            
-        @if(session('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
+
+            @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
             @endif
 
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            @foreach($images as $image)
+            <div class="card pub_img">
+                <div class="card-header">
+                    @if(isset($image->user->img))
+                    <div class="card-body">
+                        <div class="container-avatar-profile">
+                            <img src="{{ route('user.avatar', ['filename'=> $image->user->img]) }}" class="avatar" />
                         </div>
+                    </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <div class="data-user">
+                    {{ $image->user->name. ' '.$image->user->surname. ' | ' }} <span>{{ '@'.$image->user->nick }}</span>
+                    </div>
+                    
                 </div>
+
             </div>
+            
+            <div class="card-body">
+            <div class="container-img">
+                <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
+            </div>
+            </div>
+            @endforeach
+
+            
+
         </div>
     </div>
 </div>

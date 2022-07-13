@@ -62,5 +62,7 @@ Route::get('/user/avatar/{filename}', [\App\Http\Controllers\UserController::cla
 
 // Add Images
 Route::get('/addimage', [\App\Http\Controllers\ImageController::class, 'create'])->name('image.create');
-// Save Settings
+// Save Images
 Route::post('/image/save', [\App\Http\Controllers\ImageController::class, 'save'])->name('image.save');
+// Img Images
+Route::get('/image/file/{filename}', [\App\Http\Controllers\ImageController::class, 'getImg'])->name('image.file');

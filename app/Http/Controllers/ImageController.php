@@ -24,7 +24,7 @@ class ImageController extends Controller
         //Validation
         $validate = $this->validate($request, [
             'description_img' => ['required'],
-            'image_path' => ['required', 'image']
+            'image_path' => 'required|mimes:jpeg,jpg,png',
         
         ]);
 
@@ -52,6 +52,11 @@ class ImageController extends Controller
                                 ->with(['message' => 'Image upload']);
 
         
+    }
+
+    public function getImg($filename){
+        $file = Storage::disk('images')->get($filename);
+        return new Response($file, 200);
     }
 
 
