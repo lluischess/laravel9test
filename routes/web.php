@@ -40,9 +40,7 @@ use App\Models\User;
 // });
 
 // Home
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Show PHP versión:
 Route::get('/php', function(){

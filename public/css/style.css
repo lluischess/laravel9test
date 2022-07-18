@@ -47,4 +47,15 @@
 
 .container-desc{
     padding: 20px;
+    padding-top: 5px;
+}
+
+.likes{
+    padding: 7px;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+.likes img{
+    width: 32px;
 }

@@ -30,14 +30,22 @@
                     <div class="container-img">
                         <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
                     </div>
-
+                    <div class="likes">
+                        <img src="{{ asset('images/me-gustaNegro.png') }}">
+                    </div>
                     <div class="container-desc">
                         <span>{{ '@'.$image->user->nick }}</span>
                         <p>{{ $image->description }}</p>
                     </div>
+
+                    <a href="" class="btn btn-warning">
+                        Coments ({{ count($image->comments) }})
+                    </a>
                 </div>
             </div>
             @endforeach
+
+            <!-- Pagination -->
             {{ $images->links() }}
 
         </div>
