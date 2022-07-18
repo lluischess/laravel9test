@@ -31,6 +31,7 @@
                         <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
                     </div>
                     <div class="likes">
+                        
                         <img src="{{ asset('images/me-gustaNegro.png') }}">
                     </div>
                     <div class="container-desc">
