@@ -59,5 +59,16 @@ class ImageController extends Controller
         return new Response($file, 200);
     }
 
+    public function detail($id){
+        $image = Image::find($id);
+        if($image){
+            return view('images.detail', [
+                'image'=>$image
+            ]);
+        }else{ 
+            return redirect()->route('image.home')->with(['message'=>'Imagen Incorrecta']);
+        }
+    }
+
 
 }
