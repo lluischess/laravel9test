@@ -59,3 +59,7 @@
 .likes img{
     width: 32px;
 }
+
+.date{
+    float: right;
+}

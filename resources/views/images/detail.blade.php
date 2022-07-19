@@ -42,6 +42,10 @@
                     <a href="" class="btn btn-warning">
                         Coments ({{ count($image->comments) }})
                     </a>
+
+                    <div class="date">
+                        <p>Published: <span>{{ FormatTime::LongTimeFilter($image->created_at)}} </span></p>
+                    </div>
                 </div>
             </div>
         </div>
