@@ -15,7 +15,7 @@ class Image extends Model
     // Relation One to Many
     public function comments(){
         // Definimos la relación con otro Modelo/Objeto
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment')->orderBy('id', 'desc');
     }
 
     // Relation One to Many

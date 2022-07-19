@@ -41,23 +41,48 @@
                     <div class="date">
                         <p>Published: <span>{{ FormatTime::LongTimeFilter($image->created_at)}} </span></p>
                     </div>
-                    
+
                     <h2>
                         Coments ({{ count($image->comments) }})
                     </h2>
                     <hr>
 
                     <div>
-                        <form action="POST" action="">
-                            <input type="hidden" name="image_id" value="{{ $image->id}}">
+                        <form action="{{ route('coment.save')}}" method="post">
+                            <!-- @csrf protección contra ataques de formulario -->
+                            @csrf
+                            <input type="hidden" name="image_id" id="image_id" value="{{ $image->id}}">
 
                             <p> Coment:
                                 <textarea name="coment" id="coment" class="form-control"></textarea>
                             </p>
-                            <input type="button" class="btn btn-info" value="Post coment">
+
+
+                            <button type="submit" class="btn btn-info">Post comment</button>
                         </form>
 
+                        @error('image_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>Error</strong>
+                        </span>
+                        @enderror
+
+
+                        @error('coment')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>Error</strong>
+                        </span>
+                        @enderror
+                        <br>
+                        @foreach($image->comments as $comment)
+                        <div class="commentslist">
+                            <span>{{ '@'.$comment->user->nick }}</span> | <span>{{ FormatTime::LongTimeFilter($comment->created_at)}} </span>
+                            <p>{{ $comment->content }}</p>
+                        </div>
+                        @endforeach
                     </div>
+
+
 
 
                 </div>
