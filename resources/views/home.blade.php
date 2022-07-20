@@ -33,8 +33,23 @@
                         <img src="{{ route('image.file', ['filename' => $image->image_path]) }}">
                     </div>
                     <div class="likes">
+                        {{count($image->likes)}}
 
-                        <img src="{{ asset('images/me-gustaNegro.png') }}">
+                        <?php $user_like = false; ?>
+
+                        @foreach($image->likes as $like)
+                            @if($like->user->id == Auth::user()->id)
+                                <?php $user_like = true; ?>
+                            @endif
+                        @endforeach
+                        
+
+                        @if($user_like)
+                        <img src="{{ asset('images/me-gustaRojo.png') }}" class="btn-like">
+                        @else
+                        <img src="{{ asset('images/me-gustaNegro.png') }}" class="btn-like">
+                        @endif
+                        
                     </div>
                     <div class="container-desc">
                         <span>{{ '@'.$image->user->nick }}</span>
