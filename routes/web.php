@@ -74,7 +74,10 @@ Route::get('/image/{id}', [\App\Http\Controllers\ImageController::class, 'detail
 
 // Save Comment
 Route::post('/coment/save', [\App\Http\Controllers\CommentController::class, 'store'])->name('coment.save');
+// Delete Comment
+Route::get('/comment/{id}', [\App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 //---------------------------------
 
 
 
+    

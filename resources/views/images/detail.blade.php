@@ -77,8 +77,15 @@
                         @foreach($image->comments as $comment)
                         <div class="commentslist">
                             <span>{{ '@'.$comment->user->nick }}</span> | <span>{{ FormatTime::LongTimeFilter($comment->created_at)}} </span>
-                            <p>{{ $comment->content }}</p>
+                            <p>{{ $comment->content }} <br>
+                                @if( Auth::check() && ($comment->user_id == Auth::user()->id || $comment->images->id == Auth::user()->id))
+                                <a href="{{ route('comment.delete', ['id' => $comment->id]) }}" class="btn btn-sm btn-danger">Delete</a>
+                            
+                            @endif
+                            </p>
                         </div>
+
+
                         @endforeach
                     </div>
 
