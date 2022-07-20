@@ -78,6 +78,11 @@ Route::post('/coment/save', [\App\Http\Controllers\CommentController::class, 'st
 Route::get('/comment/{id}', [\App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
 //---------------------------------
 
+// Save Like
+Route::get('/like/{image_id}', [\App\Http\Controllers\LikeController::class, 'like'])->name('like.save');
+// Save Dislike
+Route::get('/dislike/{image_id}', [\App\Http\Controllers\LikeController::class, 'dislike'])->name('like.delete');
+
 
 
     
