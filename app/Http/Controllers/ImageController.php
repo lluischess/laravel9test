@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Like;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -68,6 +70,44 @@ class ImageController extends Controller
         }else{ 
             return redirect()->route('image.home')->with(['message'=>'Imagen Incorrecta']);
         }
+    }
+
+    public function delete($id){
+        $user = \Auth::user();
+		$image = Image::find($id);
+		$comments = Comment::where('image_id', $id)->get();
+		$likes = Like::where('image_id', $id)->get();
+		
+		if($user && $image && $image->user->id == $user->id){
+			
+			// Eliminar comentarios
+			if($comments && count($comments) >= 1){
+				foreach($comments as $comment){
+					$comment->delete();
+				}
+			}
+			
+			// Eliminar los likes
+			if($likes && count($likes) >= 1){
+				foreach($likes as $like){
+					$like->delete();
+				}
+			}
+			
+			// Eliminar ficheros de imagen
+			Storage::disk('images')->delete($image->image_path);
+			
+			// Eliminar registro imagen
+			$image->delete();
+			
+			$message = array('message' => 'Image deleted');
+		}else{
+			$message = array('message' => 'There is an error to delete this image');
+		}
+		
+		return redirect()->route('home')->with($message);
+
+
     }
 
 

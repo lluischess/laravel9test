@@ -51,6 +51,13 @@
                         @endif
                         
                     </div>
+                    <!-- Button to Open the Modal -->
+                        @if(Auth::user() && Auth::user()->id == $image->user->id)
+                        <div class="actions">
+                            <a href="{{ route('image.delete', ['id' => $image->id]) }}" class="btn btn-danger">Delete this publication</a>
+                        </div>
+                        @endif
+
                     <div class="container-desc">
                         <span>{{ '@'.$image->user->nick }}</span>
                         <p>{{ $image->description }}</p>

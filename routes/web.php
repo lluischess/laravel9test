@@ -68,6 +68,8 @@ Route::get('/addimage', [\App\Http\Controllers\ImageController::class, 'create']
 Route::post('/image/save', [\App\Http\Controllers\ImageController::class, 'save'])->name('image.save');
 // Img Images
 Route::get('/image/file/{filename}', [\App\Http\Controllers\ImageController::class, 'getImg'])->name('image.file');
+// delete Images
+Route::get('/image/delete/{id}', [\App\Http\Controllers\ImageController::class, 'delete'])->name('image.delete');
 //---------------------------------
 
 // Img Detail
