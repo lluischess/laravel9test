@@ -63,3 +63,11 @@
 .date{
     float: right;
 }
+
+.btn-like{
+    width: 20px;
+}
+
+.btn-dislike{
+    width: 20px;
+}

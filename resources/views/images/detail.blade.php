@@ -43,9 +43,9 @@
                         
 
                         @if($user_like)
-                        <img src="{{ asset('images/me-gustaRojo.png') }}" class="btn-like">
+                        <img src="{{ asset('images/me-gustaRojo.png') }}" data-id="{{$image->id}}" class="btn-like">
                         @else
-                        <img src="{{ asset('images/me-gustaNegro.png') }}" class="btn-like">
+                        <img src="{{ asset('images/me-gustaNegro.png') }}" data-id="{{$image->id}}" class="btn-dislike">
                         @endif
                         
                     </div>
