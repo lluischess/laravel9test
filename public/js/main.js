@@ -1,3 +1,3 @@
-window.addEventListener("load", function(){
-    $('body').css('body','red');
-});
+$(document).ready(function(){
+        alert("Hola Mundo con jQuery!");
+   });
