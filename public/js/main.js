@@ -1,3 +1,3 @@
 window.addEventListener("load", function(){
-    alert("La Pagina esta cargada");
+    $('body').css('body','red');
 });
