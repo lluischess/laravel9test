@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -66,6 +67,14 @@ class UserController extends Controller
     public function get_img_avatar($file_name){
         $file = Storage::disk('users')->get($file_name);
         return new Response($file, 200);
+    }
+
+    public function profile($id){
+        $user = User::find($id);
+
+        return view('user.profile', [
+			'user' => $user
+		]);
     }
 
 

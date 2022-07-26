@@ -71,3 +71,30 @@
 .btn-dislike{
     width: 20px;
 }
+
+.profile-user{
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.profile-user .container-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 900px;
+    overflow: hidden;
+    float:left;
+}
+.profile-user .container-avatar img{
+   height: 100%;
+}
+
+.profile-user .user-info{
+    float: left;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.btn-search{
+    margin-left: 0px;
+    padding-left: 0px;
+}
