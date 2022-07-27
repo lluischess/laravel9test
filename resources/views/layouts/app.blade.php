@@ -55,6 +55,9 @@
                                 <a href="{{ route('home') }}" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('user.index') }}" class="nav-link">Search</a>
+                            </li>
+                            <li class="nav-item">
                             <a href="{{ route('image.create') }}" class="nav-link">Add image</a>
                             </li>
                             <li>

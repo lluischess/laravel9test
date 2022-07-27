@@ -44,4 +44,10 @@ $(document).ready(function(){
         }
         like();
 
+        // Buscador
+
+        $('#buscador').submit(function(){
+            $(this).attr('action',url+'/users/'+$('#buscador #search').val());
+        });
+
    });

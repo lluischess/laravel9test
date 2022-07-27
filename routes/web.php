@@ -58,8 +58,10 @@ Route::get('/settings', [\App\Http\Controllers\UserController::class, 'settings'
 Route::post('/user/update', [\App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 // Avatar Settings
 Route::get('/user/avatar/{filename}', [\App\Http\Controllers\UserController::class, 'get_img_avatar'])->name('user.avatar');
-// Profile Settings
+// Profile user
 Route::get('/profile/{id}', [\App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');
+// Users to search
+Route::get('/users/{search?}', [\App\Http\Controllers\UserController::class, 'users'])->name('user.index');
 //---------------------------------
 
 // Add Images
